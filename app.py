@@ -20,7 +20,7 @@ from nltk.corpus import stopwords
 def load_files():
     tf = pickle.load(open("tfidf_vectorizer.pkl", "rb"))
     X = load_npz("job_matrix.npz")
-    jobs = pd.read_csv("jobs.csv")
+    jobs = pd.read_csv("jobs_deploy.csv")
     jobs["skills"] = jobs["skills"].apply(lambda x: ast.literal_eval(x) if isinstance(x, str) else x)
     return tf, X, jobs
 
